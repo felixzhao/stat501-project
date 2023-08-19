@@ -168,3 +168,5 @@ cython_debug/
 *.out
 *.gz
 *.toc
+
+stat501-project-report.pdf
