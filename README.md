@@ -22,7 +22,7 @@ When working with notebooks, consider adhering to the following guidelines:
 
 2. Refactor valuable components. Avoid repeating the same task across multiple notebooks. If it's related to data preprocessing, incorporate it into the pipeline at **'src/data/make_dataset.py'** and retrieve data from **'data/interim'**. If it's essential utility code, move it to **'src'**."
 
-Reference: [DrivenData's Cookiecutter Data Science] (https://drivendata.github.io/cookiecutter-data-science/)
+Reference: [DrivenData's Cookiecutter Data Science](https://drivendata.github.io/cookiecutter-data-science/)
 
 # Data
 
