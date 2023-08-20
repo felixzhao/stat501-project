@@ -4,35 +4,36 @@
 
 LaTeX files, complete with templates and samples for reporting, can be found in the **'report'** folder.
 
-Update the **stat501-project-report.tex** file for report contents.
-Modify **BIBTEX_GOF.bib** for references.
-Visual **Studio Code** can be used to generate a PDF from the LaTeX files.
+- Update the **stat501-project-report.tex** file for report contents.
+
+- Modify **BIBTEX_GOF.bib** for references.
+
+- Visual **Studio Code** can be used to generate a PDF from the LaTeX files.
 
 # Notebooks
 
-Please create and run code in Google Colab, then save to this repo after finished it.
+Kindly create and execute the code in Google Colab. Once completed, save it to this repository.
 
-Suggesting to following below rule when working with notebooks
+When working with notebooks, consider adhering to the following guidelines:
 
+"We recommend two primary steps for effective notebook usage:
 
-"There are two steps we recommend for using notebooks effectively:
+1. Adopt a naming convention that indicates the owner and the sequence in which the analysis was conducted. We suggest the format **'<step>-<ghuser>-<description>.ipynb'** (e.g., **'0.3-bull-visualize-distributions.ipynb'**).
 
-Follow a naming convention that shows the owner and the order the analysis was done in. We use the format <step>-<ghuser>-<description>.ipynb (e.g., 0.3-bull-visualize-distributions.ipynb).
+2. Refactor valuable components. Avoid repeating the same task across multiple notebooks. If it's related to data preprocessing, incorporate it into the pipeline at **'src/data/make_dataset.py'** and retrieve data from **'data/interim'**. If it's essential utility code, move it to **'src'**."
 
-Refactor the good parts. Don't write code to do the same task in multiple notebooks. If it's a data preprocessing task, put it in the pipeline at src/data/make_dataset.py and load data from data/interim. If it's useful utility code, refactor it to src."
-
-reference : https://drivendata.github.io/cookiecutter-data-science/
+Reference: [DrivenData's Cookiecutter Data Science] (https://drivendata.github.io/cookiecutter-data-science/)
 
 # Data
 
-Raw Data can save in data/raw folder
-pre-processed data please save in data/processed folder
+- Store raw data in the **'data/raw'** folder.
+
+- Save pre-processed data in the **'data/processed'** folder.
 
 # Data Security
 
-NOTICE: Please clear all cells output, and do not commint any data into repo.
-We should not publish any data to public.
+**NOTICE:** Ensure all cell outputs are cleared, and avoid committing any data into the repo. We must refrain from making any data public.
 
 # reuseable code
 
-Any code need to reused in different notebook should create under src folder.
+Any code that may be reused across different notebooks should be placed in the **'src'** folder.
