@@ -1,0 +1,119 @@
+---
+title: "STAT501 Consulting Pre-Processing"
+author: "Michael Kerr"
+date: "2023-08-17"
+output: pdf_document
+---
+
+# start_end_registrations
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+```{r}
+library(readxl)
+user_data <- read_excel("Stats Consulting Data.xlsx", sheet="user_data")
+start_end_registrations <- read_excel("Stats Consulting Data.xlsx", sheet="start_end_registrations")
+```
+
+This chunk of code converts the data to wide format and calculates the number of goals set for each individual.
+
+```{r}
+library(tidyr)
+library(tidyverse)
+
+wide_SER <- pivot_wider(start_end_registrations,
+            id_cols="citizenId",
+            names_from="type",
+            values_from = "valueCount")
+wide_SER <- wide_SER %>% remove_rownames %>% column_to_rownames(var="citizenId")
+
+wide_SER$goals_set <- rowSums(!is.na(wide_SER))
+```
+
+# intervention_history
+
+```{r}
+library(readxl)
+intervention_history <- read_excel("Stats Consulting Data.xlsx", sheet="intervention_history")
+```
+
+This chunk of code is to just get an idea of the response rates. I made a histogram of all the responses.
+
+```{r}
+library(lubridate)
+
+# Make data into wide format and remove the Id column
+wide_IH <- pivot_wider(intervention_history,
+            id_cols="citizenId",
+            names_from="interventionNumber",
+            values_from = "interventionDate")
+wide_IH <- wide_IH %>% remove_rownames %>% column_to_rownames(var="citizenId")
+
+# Convert each column to numeric (system seconds)
+for(column in 1:ncol(wide_IH)) {
+  wide_IH[,column] <- as.numeric(wide_IH[,column])
+}
+
+# Calculate the time since the initial response then set initial response to 0
+wide_IH[,2:ncol(wide_IH)] <- (wide_IH[,2:ncol(wide_IH)] - wide_IH[,1])/(60*24)
+wide_IH[,1] <- 0
+
+# Make a histogram of the responses since their inital response (without including the very first one)
+hist(as.numeric(as.matrix(wide_IH[,-1])), breaks=30, xlab="Time in days for each response")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
