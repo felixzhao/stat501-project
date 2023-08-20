@@ -2,10 +2,11 @@
 
 # Reporting
 
-Latex files with template and sample for reporting is under report folder.
-Update stat501-project-report.tex file for report contents.
-Update BIBTEX_GOF.bib for reference.
-Vistual Code can used to generate pdf from latex file.
+LaTeX files, complete with templates and samples for reporting, can be found in the **'report'** folder.
+
+Update the **stat501-project-report.tex** file for report contents.
+Modify **BIBTEX_GOF.bib** for references.
+Visual **Studio Code** can be used to generate a PDF from the LaTeX files.
 
 # Notebooks
 
