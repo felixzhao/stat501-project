@@ -101,7 +101,50 @@ Data quality and validation procedures.
 
 \subsection{Citizen variables (Micheal)}
 
-\subsection{Registretion (Felix)}
+% \subsection{Registretion (Felix)}
+
+\subsection{Citizen Registration Analysis (Felix)}
+
+\subsubsection{Start end registrations}
+The \textit{start end registrations} table aggregates data for each registration type of citizens. 
+Despite the table containing 1048575 rows, a significant majority (1047272 rows) have their 'Type' set as "nan", indicating that these citizens have not specified a registration Type.
+
+Only 357 unique citizens have defined a registration type. 
+Fig~\ref{fig:countoftypes}
+
+The distribution of the count of citizens against the number of types selected by them is illustrated in Fig~\ref{fig:howmanytypes}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\linewidth]{images/reg_types.png}
+\caption{Count of types}
+\label{fig:countoftypes}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\linewidth]{images/start_end_reg_count.png}
+\caption{How many citizens select how many types in start\_end\_registrations}
+\label{fig:howmanytypes}
+\end{figure}
+
+\subsubsection{Registrations per Goal}
+The \textit{registrations per goal} table aggregates registration data by the goal of each registration type for citizens. 
+
+Notably, a single registration type can be associated with multiple goals. There are 362 unique citizens with registration types in both the \textit{registrations per goal} and \textit{goal and registration} tables, differing from the distribution in \textit{start\_end\_registrations}.
+
+\subsubsection{Goal and Registration}
+The \textit{goal and registration} table provides detailed registration data for each type and its associated goals for citizens.
+
+\subsubsection{Missing Citizens in Start end registrations}
+Upon analysis, it was discovered that four citizens, namely 831841, 909811, 955121, and 1022212, were absent in the \textit{start end registration} table but present in both the \textit{registrations per goal} and \textit{goal and registration} tables.
+
+\subsubsection{Table Selection for Aggregation at the Citizen Level}
+The \textit{Start end registrations} table appears to be the most suitable for representing citizen registration activities since it is already aggregated at the registration type level, although, it lacks information on four citizens and excludes the "EXERCISE" category. because of, the \textit{registrations per goal} table detailed goal-wise data for each registration type might result in a substantial aggregation workload. The \textit{goal and registration} table's data is deemed too intricate and is thus not considered for this phase.
+
+For a more comprehensive representation of citizen registration activities, 
+We aggregated in registration type level for each citizen based on "valueCount"  
+in the \textit{Start end registrations} table.
 
 \subsection{Text messages (Felix)}
 
