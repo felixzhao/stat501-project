@@ -311,7 +311,7 @@ It's imperative to understand the nuances of feature loadings. All the top featu
 		
 		\begin{figure}[h]
 			\begin{center}
-				\includegraphics[width=150mm]{fig/censored, birth.png}
+				\includegraphics[width=150mm]{images/censored, birth.png}
 				\caption{Kaplan-Meier curve of survival probabilities per cluster}
 				\label{fig:cens_surv}
 			\end{center}
@@ -338,11 +338,14 @@ Final summary and conclusions drawn from the statistical analysis.
 \bibliographystyle{apalike3}
 %\bibliographystyle{abbrv} %this is the same as plainnat but with last name fist 
 %\bibliographystyle{unsrtnat}  % Sets the bibliography style
-                              % unsrtnat. See the article about
-                              % bibliography styles for more
-                              % information on
-                              % https://www.sharelatex.com/learn/Natbib_bibliography_styles
-\bibliography{BIBTEX_GOF} 
+% unsrtnat. See the article about
+% bibliography styles for more
+% information on
+% https://www.sharelatex.com/learn/Natbib_bibliography_styles
+\setlength{\bibhang}{0pt}
+
+\raggedright
+\bibliography{bib_501report}
 
 
 \end{document}
