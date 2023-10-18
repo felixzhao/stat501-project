@@ -203,7 +203,35 @@ from the T-SNE plot Figure~\ref{fig:cluster}.
   \label{fig:cluster}
   \end{figure}
 
-\subsection{PCA (Felix) }
+% \subsection{PCA (Felix) }
+
+\subsection{PCA Analysis (Felix)}
+
+Principal Component Analysis (PCA) is a statistical procedure that orthogonally transforms the original variables of a dataset into a set of linearly uncorrelated variables known as Principal Components (PCs). These PCs are ordered such that the first few retain most of the variation present in all of the original variables. PCA is frequently employed for dimensionality reduction, especially in contexts where data variables are highly correlated.
+
+In the context of our study, PCA was not just a tool for dimensionality reduction but was instrumental in discerning the key features characterizing each cluster. Our methodology involved executing PCA individually for each cluster, aiming to identify the components that cumulatively explained 95\% of the variance.
+
+Subsequent to the PCA, we computed the cumulative loadings for all features across the identified principal components. Here, 'cumulative loading' refers to the aggregated contribution of each feature across the components, providing an indication of the significance of each feature in explaining the variance within the cluster.
+
+To elucidate the relative importance of the original features, they were ranked based on their cumulative loadings. This ranking facilitated the identification of features that were most explanatory for each cluster.
+
+Visually, our findings are presented in two distinct plots. 
+Figure~\ref{fig:all_features} a radar plot provides a comprehensive view, showcasing the impact of all features for each cluster. 
+In contrast, Figure~\ref{fig:top5_features} focuses on the top 5 impactful features for each cluster, offering a more concentrated perspective. This latter plot is particularly illuminating as it accentuates the distinguishing features between clusters, providing clear demarcations in their characteristics.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.7\linewidth]{images/all_feature}
+  \caption{impact of all features for each cluster}
+  \label{fig:all_features}
+  \end{figure}
+
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\linewidth]{images/top5_features.png}
+    \caption{impact of top 5 features for each cluster}
+    \label{fig:top5_features}
+    \end{figure}
 
 \subsection{Survival analysis (Micheal)}
 
