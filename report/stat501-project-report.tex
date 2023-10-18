@@ -185,7 +185,23 @@ Statistical tests conducted.
 Models fitted to the data.
 Model validation techniques.
 
-\subsection{Clustering (Felix)}
+% \subsection{Clustering (Felix)}
+
+\subsection{Citizen Clustering (Felix)}
+
+our endeavor to cluster citizens based on their messaging behavior and associated features, we adopted the k-means clustering algorithm. To facilitate a more intuitive visualization of these clusters, we employed the t-SNE (t-distributed Stochastic Neighbor Embedding) technique. 
+
+A salient observation from the clustering results is the emergence of a distinct cluster, differentiated from the others. A deeper analysis revealed that members of this cluster uniformly exhibited the characteristic of having the highest maximum message length. Specifically, the longest messages dispatched by these individuals are notably extensive in character count compared to their counterparts in other clusters.
+
+Post a meticulous preprocessing and normalization phase of the features, and subsequent iterative experimentation with diverse cluster counts, a consensus was reached that a quintet of clusters—five in total—offered the most balanced distribution. This determination was substantiated by the insights gleaned 
+from the T-SNE plot Figure~\ref{fig:cluster}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.7\linewidth]{images/Kmeans_5_clusters}
+  \caption{Count of types}
+  \label{fig:cluster}
+  \end{figure}
 
 \subsection{PCA (Felix) }
 
