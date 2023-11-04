@@ -201,14 +201,7 @@ We have consolidated the text message data for individual citizens and performed
 
 These features provide a comprehensive overview of the text messaging behavior and content of individual citizens. By analyzing these features, we can gain insights into the communication patterns, preferences, and tendencies of the citizens.
 
-
-\section{Preliminary Data Analysis}
-
-\label{s.pda}
-
-% \subsection{Missing data handle (Micheal)}
-
-\subsection{Missing values and MICE}
+\section{Missing values and MICE}
 	
 	Missing values are often a problem when working with datasets. Some techniques to handle missing values include ignoring them, or imputing them. To impute means to replace these cells with missing values with another value. The problem now is to determine the most appropriate value to give the cell or, in a more appropriate and principal phrasing, determine the most appropriate value to give the individual. This distinction is important as it gives emphasis on the need for context when imputing missing values.
 	
@@ -216,7 +209,7 @@ These features provide a comprehensive overview of the text messaging behavior a
 	
 	Multiple imputation in chained equations (MICE) is a popular method of imputation largely because of its ability to efficiently compute many different variations of these missing values and find the values which best fit. Each iteration of imputation generates complete datasets based on regression models of each variable where these regression models can be specified, for example, as logistic, poisson or even random forest (\cite{mice1}). In our MICE model, each variable was fitted to a random forest regression model and imputed using these values. A major assumption that MICE makes, however, is that the data is missing at random.
 	
-	\subsubsection{Missingness}
+	\subsection{Missingness}
 	
 	According to \cite{rarnorld1}, there are three main categories of missingness: Missing completely at random (MCAR), missing at random (MAR) and non-ignorable non-response (or missing not at random; MNAR). MCAR means that there is some computable probability that a value is missing, and MNAR means that the reason why a value is missing is due to the outcome of interest. MAR means that the reason for why the value is missing is \emph{entirely} dependent on the auxiliary variables. Multiple imputation makes the assumption that the missing values are MAR.
 	
@@ -342,23 +335,33 @@ In contrast, Figure~\ref{fig:top5_features} focuses on the top 5 impactful featu
 
 \label{s.key}
 
-\subsection{TOP 5 impact feature for each clusters}
+\subsection{Most impactful features}
 
-Figure~\ref{fig:table} shows detial of top 5 impact features for each clusters.
+Table \ref{table:top5} shows the top 5 most impactful features for each cluster.
 
-A meticulous examination of the top features for each cluster reveals intriguing patterns and insights. Cluster 3 is particularly noteworthy. Citizens encompassed within this cluster tend to remain in the program for extended durations, receiving messages with higher frequency and greater length. A salient feature influencing this cluster is the registration type labeled 'Alcohol'. This prominence of 'Alcohol' as a defining feature warrants a deeper exploration to understand its implications and potential underlying causes.
+An examination of the top features for each cluster reveals intriguing patterns and insights. Cluster 3 is particularly noteworthy. Citizens encompassed within this cluster tend to remain in the program for extended durations, receiving messages with higher frequency and greater length. An interesting feature influencing this cluster is the registration type labeled 'Alcohol'. This prominence of 'Alcohol' as a defining feature warrants a deeper exploration to understand its implications and potential underlying causes. The 'Alcohol' feature is a count of the number of times a user has entered alcohol related entries into their app. This may mean that individuals in Cluster 3 tend to focus on their own alcohol habits which is important during pregnancy.
 
 Conversely, Cluster 4 exhibits a contrasting behavior. Citizens here often exit the program prematurely. Influential factors for this cluster encompass attributes like BMI, DIET, and MEDICINE. A point of particular concern is the prominence of individuals labeled as 'BMI underweight'. Such individuals might necessitate specialized attention and interventions to ensure their well-being and sustained participation.
 
 It's imperative to understand the nuances of feature loadings. All the top features identified are in a positive direction. A feature's high loading across all principal components, especially in the context of Cluster 2, signifies its pivotal role in determining the direction of the principal components for the data points within that cluster. However, it's crucial to differentiate between the importance and magnitude of a feature. While the loading elucidates the significance of a feature in capturing the variance or structure of the data, it doesn't provide insights into its magnitude. Thus, even if a feature has the highest loading on the principal components, it doesn't inherently imply that its average or cumulative values will be the most pronounced across all clusters.
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=0.7\linewidth]{images/table.png}
-  \caption{table: impact of top 5 features for each cluster}
-  \label{fig:table}
-  \end{figure}
-
+\begin{table}[h]
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline \textbf{Cluster} & \textbf{1\textsuperscript{st} } & \textbf{2\textsuperscript{nd}} & \textbf{3\textsuperscript{rd}} & \textbf{4\textsuperscript{th}} & \textbf{5\textsuperscript{th}} \\
+			
+			\hline 1 & MOOD & PAIN & age & Obesity 2 & Birth (Maybe) \\
+			\hline 2 & stress & ALCOHOL & hasEverHadWeightGoal & MOOD & Height \\
+			\hline 3 & ALCOHOL & Message count (received) & Max message length & hasEndedAdvisory & Age \\
+			\hline 4 & MEDICINE & Obesity 2 & advisor ID & Count of diet entries & Underweight \\
+			\hline 5 & Height & citizen ID & Previous weight goal? & Previous activity goal? & Age \\
+			\hline
+		\end{tabular}}
+	\end{center}
+	\label{table:top5}
+	\caption{The top 5 most impactful features per cluster}
+\end{table}
 
 % \subsection{Survival analysis and days in the program (Micheal)}
 
