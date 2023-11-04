@@ -126,13 +126,20 @@ Data quality and validation procedures.
 
 % \subsection{Citizen variables (Micheal)}
 
-\subsection{Feature construction (Micheal)}
-		
-		\subsubsection{Body mass index}
-		
-		\subsubsection{Body mass index}
-		
-		The \cite{WHO_BMI} defines body mass index (BMI) as $\text{BMI} = \frac{\text{weight (kg)}}{\left[\text{height} (m)\right]^2}$. These indexes are then further categorized into: Underweight, Normal, Pre-obese, Obesity 1, Obesity 2 and Obesity 3. Each individual had their BMI calculated by using their weight and height that was entered at the start of the study. Each individual's change in BMI across the study has not been considered.
+\subsection{Feature construction and consideration}
+	
+	The \cite{WHO_BMI} defines body mass index (BMI) as $\text{BMI} = \frac{\text{weight (kg)}}{\left[\text{height} (m)\right]^2}$. These indexes are then further categorized into: Underweight, Normal, Pre-obese, Obesity 1, Obesity 2 and Obesity 3. Each individual had their BMI calculated by using their weight and height that was entered at the start of the study. Each individual's change in BMI across the study has not been considered.
+
+	Across the study, each individual has been asked three times whether or not they are going to breastfeed. The final time they were asked is the value used in the analysis with the rest excluded.
+	
+	Features \emph{not} considered in the analysis are:
+	\begin{itemize}
+		\item Time data such as dates.
+		\item Weight milestones, while very interesting to analyse on their own, will only complicate the analysis. It is not easy to determine when exactly the weights are taken over the study.
+		\item All but one of the variables that are highly correlated with eachother, and variables that likely carry the same information such as daysOnProgram and daysOnPlatform.
+		\item Assumed information such as gender.
+		\item Forum activity due to lack of response.
+	\end{itemize} 
 
 % \subsection{Registretion (Felix)}
 
