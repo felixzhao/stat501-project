@@ -220,18 +220,18 @@ Identification of outliers or anomalies.
 % \subsection{Missing data handle (Micheal)}
 
 \subsection{Missing values and MICE}
-		
-		Missing values are often a problem when working with datasets. Some techniques to handle missing values include ignoring them, or imputing them. To impute means to replace these cells with missing values with another value. The problem now is to determine the most appropriate value to give the cell or, in a more appropriate and principal phrasing, determine the most appropriate value to give the \emph{individual}. This distinction is important as it gives emphasis on the need for context when imputing missing values.
-		
-		Single imputation encompasses several methods of imputation including mean imputation or regression imputation (fit $Y= \widehat\beta X + \epsilon$, where $Y$ is your missing variable and $X$ is the rest of your variables). \cite{jadhav1} says that it is assumed that the single imputation is the correct one precision is overstated, but there can never be absolute certainty about validity of imputed values. \cite{rubin1} developed a method for averaging the outcome across multiple imputed datasets which has been further developed into \textsf{R}'s package \textsf{mice}.
-		
-\subsubsection{Missingness}
-
-According to \cite{rarnorld1}, there are three main categories of missingness: Missing completely at random (MCAR), missing at random (MAR) and non-ignorable non-response (or missing not at random; MNAR). MCAR means that there is some computable probability that a value is missing, and MNAR means that the reason why a value is missing is due to the outcome of interest. MAR means that the reason for why the value is missing is \emph{entirely} dependent on the auxiliary variables (the variables measured in and out of the data). Multiple imputation makes the assumption that the missing values are MAR.
-
-\subsubsection{Multiple imputation in chained equations}
-		
-		Multiple imputation in chained equations is a popular method of 
+	
+	Missing values are often a problem when working with datasets. Some techniques to handle missing values include ignoring them, or imputing them. To impute means to replace these cells with missing values with another value. The problem now is to determine the most appropriate value to give the cell or, in a more appropriate and principal phrasing, determine the most appropriate value to give the individual. This distinction is important as it gives emphasis on the need for context when imputing missing values.
+	
+	Single imputation encompasses several methods of imputation including mean imputation or regression imputation (fit $Y= \widehat\beta X + \epsilon$, where $Y$ is your missing variable and $X$ is the rest of your variables). \cite{jadhav1} says that it is assumed that the single imputation is the correct one precision is overstated, but there can never be absolute certainty about validity of imputed values. \cite{rubin1} developed a method for averaging the outcome across multiple imputed datasets which has been further developed into \textsf{R}'s package \textsf{mice}.
+	
+	Multiple imputation in chained equations (MICE) is a popular method of imputation largely because of its ability to efficiently compute many different variations of these missing values and find the values which best fit. Each iteration of imputation generates complete datasets based on regression models of each variable where these regression models can be specified, for example, as logistic, poisson or even random forest (\cite{mice1}). In our MICE model, each variable was fitted to a random forest regression model and imputed using these values. A major assumption that MICE makes, however, is that the data is missing at random.
+	
+	\subsubsection{Missingness}
+	
+	According to \cite{rarnorld1}, there are three main categories of missingness: Missing completely at random (MCAR), missing at random (MAR) and non-ignorable non-response (or missing not at random; MNAR). MCAR means that there is some computable probability that a value is missing, and MNAR means that the reason why a value is missing is due to the outcome of interest. MAR means that the reason for why the value is missing is \emph{entirely} dependent on the auxiliary variables. Multiple imputation makes the assumption that the missing values are MAR.
+	
+	It can be argued that the data is not actually missing at random as missingness in variables a lot of the time comes down to the location of the individuals (\cite{kangh1}): some sites where the study was taken may have different health coach techniques, and therefore different coach performance. Our data does slightly include this information as the variable \textsf{advisorId} encodes site information in its first digit. Further investigation into missingness is encouraged.
 
 \section{Statistical Models and Techniques Used}
 
