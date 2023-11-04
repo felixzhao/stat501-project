@@ -266,7 +266,66 @@ In contrast, Figure~\ref{fig:top5_features} focuses on the top 5 impactful featu
     \label{fig:top5_features}
     \end{figure}
 
-\subsection{Survival analysis (Micheal)}
+\subsection{Survival analysis}
+	
+	After clustering, some measure of determining the performance of each cluster with respect to how long the clusters remained in the program is desired. Survival analysis is perfect for this, where survival is measured by how long each citizen stays in the program. Given the data, survival probabilities up to a time $t$ (days) can be estimated using a Kaplan-Meier estimator. This survival estimator takes the form:
+	
+	$$
+	\widehat{S}(t) = \prod_{i: t_i \leq t} \left( 1 - \frac{d_i}{n_i} \right)
+	$$
+	
+	where $t_i$ is a day when an individual was censored or left the program, $d_i$ is the number of people who left the program at $t_i$, and $n_i$ is the number of people still in the program.
+	
+	
+	
+	\subsubsection{Censorship}
+	
+	The Kaplan-Meier estimator has the ability to account for events that are invalid. For example: an individual leaves the program due to an outside reason and not of their own accord (which is the outcome of interest: voluntarily leaving the program). An individual could be asked why they left the program, or the reason could be given by the coach, or there could simply be no reason why an individual left. These responses (or lack thereof) were recorded and individuals were deemed uncensored/censored according to the reasons given. The following examples give a general criteria for censorship:
+	\begin{itemize}
+		\item An individual left the program and there is no reason given: censored.
+		\item An individual left the program but did not communicate when exactly they left: censored.
+		\item An individual left the program and communicated when exactly they left: not censored.
+		\item An individual completed the program: not censored.
+	\end{itemize}
+	
+	\subsubsection{Results}
+	
+	Cluster 3 has a much higher retention rate and far less wide confidence intervals than the other clusters and cluster 2 has a much more average retention rate than the rest of the clusters. Cluster 1 does have higher survival probabilities than 4 and 2, but its confidence intervals are very, very wide. The cluster of primary concern is cluster 4 where individuals in this cluster leave the program at a much faster rate than all other clusters.
+	
+	\begin{table}[h]
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|}
+				\hline \textbf{Day} & \textbf{Cluster} & \textbf{Survival probability} & \textbf{95\% CI}\\
+				\hline 50 & 1 & 97.6\% & (93.0\%, 100\%) \\
+				\cline{2-4} & 2 & 88.1\% & (82.9\%, 93.6\%) \\
+				\cline{2-4} & 3 & 100.0\% & (100.0\%, 100.0\%) \\
+				\cline{2-4} & 4 & 73.2\% & (60.8\%, 88.2\%) \\
+				\hline 200 & 1 & 92.3\% & (84.3\%, 100\%) \\
+				\cline{2-4} & 2 & 74.2\% & (66.9\%, 82.3\%) \\
+				\cline{2-4} & 3 & 99.2\% & (97.6\%, 100.0\%) \\
+				\cline{2-4} & 4 & 16.4\% & (7.4\%, 36.1\%) \\
+				\hline 350 & 1 & 76.4\% & (61.4\%, 94.9\%) \\
+				\cline{2-4} & 2 & 63.6\% & (55.0\%, 73.6\%) \\
+				\cline{2-4} & 3 & 91.7\% & (87.0\%, 96.8\%) \\
+				\cline{2-4} & 4 & 0\% & (NA, NA) \\
+				\hline 500 & 1 & 49.5\% & (28.7\%, 85.4\%) \\
+				\cline{2-4} & 2 & 27.1\% & (10.8\%, 68.1\%) \\
+				\cline{2-4} & 3 & 54.6\% & (45.9\%, 65.0\%) \\
+				\cline{2-4} & 4 & 0\% & (NA, NA) \\
+				\hline
+			\end{tabular}
+		\end{center}
+		\label{table:surv_prob}
+		\caption{The probability of surviving up to day $t$}
+	\end{table}
+	
+	\begin{figure}[h]
+		\begin{center}
+			\includegraphics[width=150mm]{images/censored, birth.png}
+			\caption{Kaplan-Meier curve of survival probabilities per cluster}
+			\label{fig:cens_surv}
+		\end{center}
+	\end{figure}
 
 \section{Key Findings}
 
@@ -294,40 +353,6 @@ It's imperative to understand the nuances of feature loadings. All the top featu
 
 
 % \subsection{Survival analysis and days in the program (Micheal)}
-
-\section{Survival analysis}
-		
-		After clustering, some measure of determining the performance of each cluster with respect to how long the clusters remained in the program is desired. Survival analysis is perfect for this, where survival is measured by how long each citizen stays in the program. Given the data, survival probabilities up to a time $t$ (days) can be estimated using a Kaplan-Meier estimator. This survival estimator takes the form:
-		
-		$$
-		\widehat{S}(t) = \prod_{i: t_i \leq t} \left( 1 - \frac{d_i}{n_i} \right)
-		$$
-		
-		where $t_i$ is a day when an individual was censored or left the program, $d_i$ is the number of people who left the program at $t_i$, and $n_i$ is the number of people still in the program.
-		
-		
-		
-		\subsection{Censorship}
-		
-		The Kaplan-Meier estimator has the ability to account for events that are invalid. For example: an individual leaves the program due to an outside reason and not of their own accord (which is the outcome of interest: voluntarily leaving the program). An individual could be asked why they left the program, or the reason could be given by the coach, or there could simply be no reason why an individual left. These responses (or lack thereof) were recorded and individuals were deemed uncensored/censored according to the reasons given. The following examples give a general criteria for censorship:
-		\begin{itemize}
-			\item An individual left the program and there is no reason given: censored.
-			\item An individual left the program but did not communicate when exactly they left: censored.
-			\item An individual left the program and communicated when exactly they left: not censored.
-			\item An individual completed the program: not censored.
-		\end{itemize}
-		
-		\begin{figure}[h]
-			\begin{center}
-				\includegraphics[width=150mm]{images/censored, birth.png}
-				\caption{Kaplan-Meier curve of survival probabilities per cluster}
-				\label{fig:cens_surv}
-			\end{center}
-		\end{figure}
-
-% \section{Recommendations}
-
-% Suggested actions or decisions based on the findings.
 
 \section{Limitations and Future Research (Felix)}
 
