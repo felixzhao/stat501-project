@@ -40,7 +40,7 @@
 
 
 \title{STAT 501 Case Study Assignment} 
-\author{Quan Zhao\\
+\author{Quan Zhao, Michael Kerr\\
 School of Mathematics and Statistics\\ Victoria University of Wellington, New Zealand} 
 %\date{}  % Add \date{} to make a blank date.
 
@@ -70,7 +70,7 @@ School of Mathematics and Statistics\\ Victoria University of Wellington, New Ze
 
 
 \newpage  % start from a new page
-\section{Introduction (Michael)}
+\section{Introduction}
 		
 		\label{s.intro}
 		
@@ -80,7 +80,7 @@ School of Mathematics and Statistics\\ Victoria University of Wellington, New Ze
 		
 		Sections \ref{s.data_desc} to \ref{s.pda} describe the final dataset to be worked with and sections \ref{s.stats} to \ref{s.key} describe the analyses and the key findings. The last sections discuss potential further work and an overall conclusion to this project.
 
-\section{Objectives and Scope (Felix)}
+\section{Objectives and Scope}
 
 \label{s.obj&s}
 
@@ -115,14 +115,9 @@ The scope of this study is defined to include:
 % Overview of the statistical methods used.
 % Software and tools used for analysis.
 
-\section{Data Description (All)}
+\section{Data Description}
 
 \label{s.data_desc}
-
-Sources of data.
-Description of variables.
-Data collection methods.
-Data quality and validation procedures.
 
 % \subsection{Citizen variables (Micheal)}
 
@@ -141,9 +136,7 @@ Data quality and validation procedures.
 		\item Forum activity due to lack of response.
 	\end{itemize} 
 
-% \subsection{Registretion (Felix)}
-
-\subsection{Citizen Registration Analysis (Felix)}
+\subsection{Citizen Registration Analysis }
 
 \subsubsection{Start end registrations}
 The \textit{start end registrations} table aggregates data for each registration type of citizens. 
@@ -186,9 +179,7 @@ For a more comprehensive representation of citizen registration activities,
 We aggregated in registration type level for each citizen based on "valueCount"  
 in the \textit{Start end registrations} table.
 
-% \subsection{Text messages (Felix)}
-
-\subsection{Text Messages Analysis (Felix)}
+\subsection{Text Messages Analysis}
 
 We have consolidated the text message data for individual citizens and performed an aggregation based on four primary characteristics: intervention by the citizen in the message, the auto-generation of the message, the presence of a video in the message, and the length of the message text.
 
@@ -215,10 +206,6 @@ These features provide a comprehensive overview of the text messaging behavior a
 
 \label{s.pda}
 
-Descriptive statistics.
-Data visualization.
-Identification of outliers or anomalies.
-
 % \subsection{Missing data handle (Micheal)}
 
 \subsection{Missing values and MICE}
@@ -239,15 +226,9 @@ Identification of outliers or anomalies.
 
 \label{s.stats}
 
-Statistical tests conducted.
-Models fitted to the data.
-Model validation techniques.
+\subsection{Clustering}
 
-% \subsection{Clustering (Felix)}
-
-\subsection{Citizen Clustering (Felix)}
-
-our endeavor to cluster citizens based on their messaging behavior and associated features, we adopted the k-means clustering algorithm. To facilitate a more intuitive visualization of these clusters, we employed the t-SNE (t-distributed Stochastic Neighbor Embedding) technique. 
+Our endeavor to cluster citizens based on their messaging behavior and associated features, we adopted the k-means clustering algorithm. To facilitate a more intuitive visualization of these clusters, we employed the t-SNE (t-distributed Stochastic Neighbor Embedding) technique. 
 
 A salient observation from the clustering results is the emergence of a distinct cluster, differentiated from the others. A deeper analysis revealed that members of this cluster uniformly exhibited the characteristic of having the highest maximum message length. Specifically, the longest messages dispatched by these individuals are notably extensive in character count compared to their counterparts in other clusters.
 
@@ -256,14 +237,12 @@ from the T-SNE plot Figure~\ref{fig:cluster}.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.7\linewidth]{images/Kmeans_5_clusters}
+  \includegraphics[width=0.6\linewidth]{images/Kmeans_5_clusters}
   \caption{Count of types}
   \label{fig:cluster}
   \end{figure}
 
-% \subsection{PCA (Felix) }
-
-\subsection{PCA Analysis (Felix)}
+\subsection{PCA Analysis}
 
 Principal Component Analysis (PCA) is a statistical procedure that orthogonally transforms the original variables of a dataset into a set of linearly uncorrelated variables known as Principal Components (PCs). These PCs are ordered such that the first few retain most of the variation present in all of the original variables. PCA is frequently employed for dimensionality reduction, especially in contexts where data variables are highly correlated.
 
@@ -276,20 +255,25 @@ To elucidate the relative importance of the original features, they were ranked 
 Visually, our findings are presented in two distinct plots. 
 Figure~\ref{fig:all_features} a radar plot provides a comprehensive view, showcasing the impact of all features for each cluster. 
 In contrast, Figure~\ref{fig:top5_features} focuses on the top 5 impactful features for each cluster, offering a more concentrated perspective. This latter plot is particularly illuminating as it accentuates the distinguishing features between clusters, providing clear demarcations in their characteristics.
+\newpage
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.7\linewidth]{images/all_feature}
+  \includegraphics[width=1.0\linewidth]{images/all_feature}
   \caption{impact of all features for each cluster}
   \label{fig:all_features}
   \end{figure}
 
+\newpage
+
   \begin{figure}[h]
     \centering
-    \includegraphics[width=0.7\linewidth]{images/top5_features.png}
+    \includegraphics[width=1.0\linewidth]{images/top5_features.png}
     \caption{impact of top 5 features for each cluster}
     \label{fig:top5_features}
-    \end{figure}
+\end{figure}
+
+\newpage
 
 \subsection{Survival analysis}
 	
@@ -352,14 +336,13 @@ In contrast, Figure~\ref{fig:top5_features} focuses on the top 5 impactful featu
 		\end{center}
 	\end{figure}
 
+\newpage
+
 \section{Key Findings}
 
 \label{s.key}
 
-Results of the statistical analysis.
-Interpretation of these results in context.
-
-\subsection{TOP 5 impact feature for each clusters (Felix)}
+\subsection{TOP 5 impact feature for each clusters}
 
 Figure~\ref{fig:table} shows detial of top 5 impact features for each clusters.
 
@@ -379,7 +362,7 @@ It's imperative to understand the nuances of feature loadings. All the top featu
 
 % \subsection{Survival analysis and days in the program (Micheal)}
 
-\section{Limitations and Future Research (Felix)}
+\section{Limitations and Future Research}
 
 \label{s.limit}
 
@@ -398,9 +381,9 @@ The study paves the way for future research, which may include more comprehensiv
 	
 	Cluster 3, the cluster with the highest retention rate, 
 	
-	\subsection{Recommendations (Michael)}
+	\subsection{Recommendations}
 	
-	Final summary and conclusions drawn from the statistical analysis.
+	% Final summary and conclusions drawn from the statistical analysis.
 
 % end of structure
 
