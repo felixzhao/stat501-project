@@ -85,7 +85,7 @@ School of Mathematics and Statistics\\ Victoria University of Wellington, New Ze
 \label{s.obj&s}
 
 \subsection{Objectives}
-The research is focused on achieving two primary objectives within the context of the Bump2Baby program, which is dedicated to fostering health and wellness among pregnant women to reduce the risks of gestational diabetes, obesity, and diabetes:
+The research is focused on achieving two primary objectives within the context of the Bump2Baby program, which is dedicated to fostering health and wellness among pregnant women to reduce the risks of gestational diabetes and obesity:
 
 \begin{enumerate}
 \item Group Differentiation and Analysis: To identify distinct groups or clusters of individuals within the program based on their engagement and behavioral data. This includes analyzing differences in how individuals interact with the Bump2Baby app and their coaches, as well as any other registered data that may influence the program's effectiveness.
@@ -223,12 +223,12 @@ These features provide a comprehensive overview of the text messaging behavior a
 
 \subsection{Clustering}
 
-Our endeavor to cluster citizens based on their messaging behavior and associated features, we adopted the k-means clustering algorithm. To facilitate a more intuitive visualization of these clusters, we employed the t-SNE (t-distributed Stochastic Neighbor Embedding) technique. 
+We endeavor to cluster citizens based on their messaging behavior and associated features so we adopted the k-means clustering algorithm. To facilitate a more intuitive visualization of these clusters, we employed the t-SNE (t-distributed Stochastic Neighbor Embedding) technique. 
 
-A salient observation from the clustering results is the emergence of a distinct cluster, differentiated from the others. A deeper analysis revealed that members of this cluster uniformly exhibited the characteristic of having the highest maximum message length. Specifically, the longest messages dispatched by these individuals are notably extensive in character count compared to their counterparts in other clusters.
+A noteworthy observation from the clustering results is the emergence of a distinct cluster, differentiated from the others. A deeper analysis revealed that members of this cluster uniformly exhibited the characteristic of having the highest maximum message length. Specifically, the longest messages dispatched by these individuals are notably extensive in character count compared to their counterparts in other clusters.
 
-Post a meticulous preprocessing and normalization phase of the features, and subsequent iterative experimentation with diverse cluster counts, a consensus was reached that a quintet of clusters—five in total—offered the most balanced distribution. This determination was substantiated by the insights gleaned 
-from the T-SNE plot Figure~\ref{fig:cluster}.
+After a meticulous preprocessing and normalization phase of the features, and subsequent iterative experimentation with diverse cluster counts, a consensus was reached that a quintet of clusters—five in total—offered the most balanced distribution. This determination was substantiated by the insights gleaned 
+from the T-SNE plot in Figure~\ref{fig:cluster}.
 
 \begin{figure}[h]
   \centering
@@ -248,8 +248,8 @@ Subsequent to the PCA, we computed the cumulative loadings for all features acro
 To elucidate the relative importance of the original features, they were ranked based on their cumulative loadings. This ranking facilitated the identification of features that were most explanatory for each cluster.
 
 Visually, our findings are presented in two distinct plots. 
-Figure~\ref{fig:all_features} a radar plot provides a comprehensive view, showcasing the impact of all features for each cluster. 
-In contrast, Figure~\ref{fig:top5_features} focuses on the top 5 impactful features for each cluster, offering a more concentrated perspective. This latter plot is particularly illuminating as it accentuates the distinguishing features between clusters, providing clear demarcations in their characteristics.
+Figure~\ref{fig:all_features}, a radar plot, provides a comprehensive view showcasing the impact of all features for each cluster. 
+In contrast, Figure~\ref{fig:top5_features} focuses on the top 5 most impactful features for each cluster, offering a more concentrated perspective. This latter plot is particularly illuminating as it accentuates the distinguishing features between clusters, providing clear differences in their characteristics.
 \newpage
 
 \begin{figure}[h]
