@@ -367,28 +367,40 @@ It's imperative to understand the nuances of feature loadings. All the top featu
 
 % \subsection{Survival analysis and days in the program (Micheal)}
 
-\section{Limitations and Future Research}
+% \section{Limitations and Future Research}
 
-\label{s.limit}
+% \label{s.limit}
 
-\subsection{Boundaries of the Study}
-The study is limited to the data provided by the Bump2Baby app and does not include external variables that could impact the health outcomes of the participants. The predictive modeling is based on the assumption that app engagement patterns are indicative of program adherence and outcomes.
+% \subsection{Boundaries of the Study}
+% The study is limited to the data provided by the Bump2Baby app and does not include external variables that could impact the health outcomes of the participants. The predictive modeling is based on the assumption that app engagement patterns are indicative of program adherence and outcomes.
 
-\subsection{Future Extensions}
-The study paves the way for future research, which may include more comprehensive data collection, such as additional health markers and external factors that could influence the program's effectiveness. Further investigation could also refine predictive modeling techniques to enhance the personalization of the program for future participants.
+% \subsection{Future Extensions}
+% The study paves the way for future research, which may include more comprehensive data collection, such as additional health markers and external factors that could influence the program's effectiveness. Further investigation could also refine predictive modeling techniques to enhance the personalization of the program for future participants.
 
 
-	\section{Discussion}
-	
-	\label{s.discuss}
-	
-	There are two clusters of significance: cluster 3: the cluster with retention rates within the program and cluster 4: the opposite. What is noticed in cluster 4 is the two features that make the most impact are related to an individual's BMI; Cluster 4's top five most impactful features include Obesity 2 and Underweight BMI classes. The DIET\_RULES feature, which is about the amount of times an entry was added into the app about their diet, is also related to this. It seems that individuals in cluster 4 may either have weight problems or their BMI is actually related to their ethnicity (\cite{kirbyj1}).
+		\section{Discussion}
+		
+		\label{s.discuss}
+		
+		\subsection{Boundaries of the study}
+		
+		The study is limited to the data provided by the Bump2Baby app and does not include external variables that could impact the health outcomes of the participants. The predictive modeling is based on the assumption that app engagement patterns are indicative of program adherence and outcomes.
+		
+		\subsection{Conclusion}
+		
+		There are two clusters of significance: cluster 3: the cluster with retention rates within the program and cluster 4: the opposite. What is noticed in cluster 4 is the two features that make the most impact are related to an individual's BMI; Cluster 4's top five most impactful features include Obesity 2 and Underweight BMI classes. The DIET\_RULES feature, which is about the amount of times an entry was added into the app about their diet, is also related to this. It seems that individuals in cluster 4 may either have weight problems or their BMI is actually related to their ethnicity (\cite{kirbyj1}).
 		
 		Cluster 3, the cluster with the highest retention rate, is most related to interactivity with the app. They seem aware of the impacts of alcohol on the child during pregnancy (\cite{dejongk1}) and are the most responsive to their health coach with the highest text message length. This is indicative of the mothers within this cluster tending to be more concerned with the health of their child.
 		
 		Among the other clusters, clusters 1 and 2, there are also noticeable patterns. These clusters tend to be associated with mental health where there is high amounts of entries into the app about mood, pain and stress. The retention rates of these clusters are not of massive concern and are likely representative of the wider population.
-	
-	\subsection{Recommendations}
+		
+		\subsection{Future Extensions}
+		
+		The study paves the way for future research, which may include more comprehensive data collection, such as additional health markers and external factors that could influence the program's effectiveness. Further investigation could also refine predictive modeling techniques to enhance the personalization of the program for future participants.
+		
+		There are many other clustering techniques than k-means clustering which may perform better and/or differently to k-means. Tuning the hyperparameters in these models and, in particular, tuning the number of clusters. There are also other ways of measuring survival such as the Nelson-Aalen estimator, and performing an in-depth log-rank test of each cluster to determine if certain clusters are really just the same.
+		
+		\subsection{Recommendations}
 	
 	% Final summary and conclusions drawn from the statistical analysis.
 
